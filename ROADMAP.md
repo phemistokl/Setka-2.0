@@ -9,3 +9,4 @@
 * Dashboard - здесь отображаются темы, получившие добро на выпуск.
 
 ## Страница Ideas
+![Image of Yaktocat](Setka-2.0/Ideas.png)
