@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import Ticket from './Ticket.jsx';
 import Modal from './Modal.jsx';
 
-import { updateTicket, createTicket, toggleModal } from '../actions';
+import { updateTicket, createTicket, toggleModal } from '../../actions';
 
 @connect(mapStateToProps, { updateTicket, createTicket, toggleModal })
 export default class TicketsBox extends Component {

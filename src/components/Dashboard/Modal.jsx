@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { addTicket, editTicket, updateTicket, deleteTicket, toggleModal } from '../actions';
+import { addTicket, editTicket, updateTicket, deleteTicket, toggleModal } from '../../actions';
 
 @connect(mapStateToModalProps, { addTicket, editTicket, updateTicket, deleteTicket, toggleModal })
 export default class Modal extends Component {

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { currentTicket, toggleModal } from '../actions';
+import { currentTicket, toggleModal } from '../../actions';
 
 @connect(undefined, { currentTicket, toggleModal })
 export default class Ticket extends Component {

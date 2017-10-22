@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import { routerReducer as routing } from 'react-router-redux'
 
 const InitialState = [
 	{
@@ -197,4 +198,4 @@ function modal( state = { isOpen: false, newEntry: false }, action) {
     }
 };
 
-export default combineReducers({ tickets, ticket, modal });
+export default combineReducers({ tickets, ticket, modal, routing });
