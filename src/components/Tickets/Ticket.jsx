@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import Date from './Date.jsx';
+
 import { currentTicket, toggleModal } from '../../actions';
 
 @connect(undefined, { currentTicket, toggleModal })
@@ -18,12 +20,14 @@ export default class Ticket extends Component {
 
     render() {
 
-          const { title, description, date, editor, author, designer, photo_editor, status, like } = this.props;
+          const { title, description, date, editor, author, designer, photo_editor, status, like, dash } = this.props;
 
           return (
-            <div className="ticketBox" onClick={this.currentTicket.bind(this)}>
-              <div>{title}</div>
-            </div>
+            <tr className="ticketBox" onClick={this.currentTicket.bind(this)}>
+              <td>{title}</td>
+              <td><Date date={date} /></td>
+              <td>{like}</td>
+            </tr>
           );
     }
 }

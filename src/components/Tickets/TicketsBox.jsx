@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PageHeader from 'react-bootstrap/lib/PageHeader';
+import Row  from 'react-bootstrap/lib/Row';
+import Col  from 'react-bootstrap/lib/Col';
+import Button from 'react-bootstrap/lib/Button';
+import Table from 'react-bootstrap/lib/Table';
 
 import Ticket from './Ticket.jsx';
 import Modal from './Modal.jsx';
@@ -28,7 +33,18 @@ export default class TicketsBox extends Component {
 
             <div>
               { this.props.isOpen ? <Modal /> : null }
-              <div className="addTicket" onClick={this.createTicket}>Add Ticket</div>
+              <Row className="show-grid">
+                <Col xs={12} sm={12} md={12} lg={12}><h1>Ideas</h1><Button className="addTicket" onClick={this.createTicket}>Add Ticket</Button></Col>
+              </Row>
+              <Table responsive striped bordered hover>
+                <thead>
+                  <tr>
+                    <th>Title</th>
+                    <th>Date</th>
+                    <th>Likes</th>
+                  </tr>
+                </thead>
+                <tbody>
                         {
                         	this.props.tickets.map(ticket =>
                         		<Ticket
@@ -43,9 +59,12 @@ export default class TicketsBox extends Component {
                         			photo_editor={ticket.photo_editor}
                               status={ticket.status}
                               like={ticket.like}
+                              dash={ticket.dash}
                         	   />
                         	)
                         }
+                  </tbody>
+                </Table>
              </div>
         );
     }

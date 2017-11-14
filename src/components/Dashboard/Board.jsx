@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { currentTicket, toggleModal } from '../../actions';
 
 @connect(undefined, { currentTicket, toggleModal })
-export default class Ticket extends Component {
+export default class Board extends Component {
     constructor(props) {
         super(props);
 
@@ -21,8 +21,9 @@ export default class Ticket extends Component {
           const { title, description, date, editor, author, designer, photo_editor, status, like } = this.props;
 
           return (
-            <div className="ticketBox" onClick={this.currentTicket.bind(this)}>
+            <div className="dashBox" onClick={this.currentTicket.bind(this)}>
               <div>{title}</div>
+              <div>{status}</div>
             </div>
           );
     }

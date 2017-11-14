@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
+import Grid  from 'react-bootstrap/lib/Grid';
 import Nav from 'react-bootstrap/lib/Nav';
 import Navbar from 'react-bootstrap/lib/Navbar';
 import NavItem  from 'react-bootstrap/lib/NavItem';
@@ -24,9 +25,9 @@ export default class App extends Component {
                       </LinkContainer>
                   </Nav>
                 </Navbar>
-                <div>
+                <Grid>
                     {this.props.children}
-                </div>
+                </Grid>
             </div>
         );
     }

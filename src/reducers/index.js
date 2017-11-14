@@ -13,6 +13,7 @@ const InitialState = [
 		photo_editor: "Peter Gabriel",
 		status: "Текст готов",
 		like: 100500,
+		dash: true,
 	},
 	{
 		id: 1,
@@ -25,6 +26,7 @@ const InitialState = [
 		photo_editor: "Peter Gabriel",
 		status: "Текст готов",
 		like: 100500,
+		dash: false,
 	},
 	{
 		id: 2,
@@ -37,6 +39,7 @@ const InitialState = [
 		photo_editor: "Peter Gabriel",
 		status: "Текст готов",
 		like: 100500,
+		dash: true,
 	},
 	{
 		id: 3,
@@ -49,6 +52,7 @@ const InitialState = [
 		photo_editor: "Peter Gabriel",
 		status: "Текст готов",
 		like: 100500,
+		dash: false,
 	},
 	{
 		id: 4,
@@ -61,6 +65,7 @@ const InitialState = [
 		photo_editor: "Peter Gabriel",
 		status: "Текст готов",
 		like: 100500,
+		dash: false,
 	},
 	{
 		id: 5,
@@ -73,6 +78,7 @@ const InitialState = [
 		photo_editor: "Peter Gabriel",
 		status: "Текст готов",
 		like: 100500,
+		dash: false,
 	},
 	{
 		id: 6,
@@ -85,6 +91,7 @@ const InitialState = [
 		photo_editor: "Peter Gabriel",
 		status: "Текст готов",
 		like: 100500,
+		dash: true,
 	},
 ];
 
@@ -101,9 +108,14 @@ function ticket(state = {}, action) {
 					designer: action.designer,
 					photo_editor: action.photo_editor,
 					status: action.status,
-					like: action.like
+					like: action.like,
+					dash: action.dash
 				}
 		}
+
+		case 'DASHBOARD': {
+        return state.dash == true;
+    }
 
 		case 'CURRENT_TICKET': {
         return state.id == action.id;
@@ -121,7 +133,8 @@ function ticket(state = {}, action) {
 					designer: action.designer,
 					photo_editor: action.photo_editor,
 					status: action.status,
-					like: action.like
+					like: action.like,
+					dash: action.dash
 					}
 				} else {
 					return state
@@ -138,7 +151,7 @@ function ticket(state = {}, action) {
 	}
 };
 
-function tickets(state = { tickets: InitialState, current: [{id: ""}] }, action) {
+function tickets(state = { tickets: InitialState, current: [{id: ""}], dashboard:[{}] }, action) {
 	switch (action.type) {
 		case 'ADD_TICKET': {
 			return {
@@ -148,6 +161,13 @@ function tickets(state = { tickets: InitialState, current: [{id: ""}] }, action)
 				]
       }
 		}
+
+		case 'DASHBOARD': {
+      return {
+				...state,
+				dashboard: state.tickets.filter(item => ticket(item, action))
+			}
+    }
 
 		case 'CURRENT_TICKET': {
       return {

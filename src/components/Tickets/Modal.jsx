@@ -12,13 +12,23 @@ export default class Modal extends Component {
           this.state = ({
             title: props.title,
             description: props.description,
-            editor: props.editor
+            editor: props.editor,
+            author: props.author,
+            designer: props.designer,
+            photo_editor: props.photo_editor,
+            status: props.status,
+            dash: props.dash
           });
         } else {
           this.state = ({
             title: '',
             description: '',
-            editor: ''
+            editor: '',
+            author: '',
+            designer: '',
+            photo_editor: '',
+            status: '',
+            dash: ''
           });
         }
     }
@@ -50,6 +60,11 @@ export default class Modal extends Component {
           title: this.state.title,
           description: this.state.description,
           editor: this.state.editor,
+          author: this.state.author,
+          designer: this.state.designer,
+          photo_editor: this.state.photo_editor,
+          status: this.state.status,
+          dash: this.state.dash,
       };
 
 
@@ -81,6 +96,41 @@ export default class Modal extends Component {
       e.preventDefault();
       this.setState({
         editor: e.target.value
+      });
+    }
+
+    handleAuthorChange(e) {
+      e.preventDefault();
+      this.setState({
+        author: e.target.value
+      });
+    }
+
+    handleDesignerChange(e) {
+      e.preventDefault();
+      this.setState({
+        designer: e.target.value
+      });
+    }
+
+    handlePhotoEditorChange(e) {
+      e.preventDefault();
+      this.setState({
+        photo_editor: e.target.value
+      });
+    }
+
+    handleStatusChange(e) {
+      e.preventDefault();
+      this.setState({
+        status: e.target.value
+      });
+    }
+
+    handleDashChange(e) {
+      e.preventDefault();
+      this.setState({
+        dash: e.target.value
       });
     }
 
@@ -132,6 +182,7 @@ export default class Modal extends Component {
                     value={this.state.description}
                   />
                 </div>
+
                 <div className="input-form-group">
                   <label htmlFor="ticket-editor">Ticket editor</label>
                   <input type="text"
@@ -141,6 +192,55 @@ export default class Modal extends Component {
                     value={this.state.editor}
                   />
                 </div>
+
+                <div className="input-form-group">
+                  <label htmlFor="ticket-author">Ticket author</label>
+                  <input type="text"
+                    onChange={this.handleAuthorChange.bind(this)}
+                    id="ticket-author"
+                    className="form-control"
+                    value={this.state.author}
+                  />
+                </div>
+
+                <div className="input-form-group">
+                  <label htmlFor="ticket-designer">Ticket designer</label>
+                  <input type="text"
+                    onChange={this.handleDesignerChange.bind(this)}
+                    id="ticket-designer"
+                    className="form-control"
+                    value={this.state.designer}
+                  />
+                </div>
+
+                <div className="input-form-group">
+                  <label htmlFor="ticket-photo_editor">Photo editor</label>
+                  <input type="text"
+                    onChange={this.handlePhotoEditorChange.bind(this)}
+                    id="ticket-photo_editor"
+                    className="form-control"
+                    value={this.state.photo_editor}
+                  />
+                </div>
+
+                <div className="input-form-group">
+                  <label htmlFor="ticket-status">Status</label>
+                  <input type="text"
+                    onChange={this.handleStatusChange.bind(this)}
+                    id="ticket-status"
+                    className="form-control"
+                    value={this.state.status}
+                  />
+                </div>
+
+                <div className="input-form-group">
+                  <label htmlFor="ticket-dash">Dashboard</label>
+                  <select value={this.state.dash} onChange={this.handleDashChange.bind(this)} id="ticket-dash">
+                    <option value="false">false</option>
+                    <option value="true">true</option>
+                  </select>
+                </div>
+
               </div>
               <div className="modal-footer">
                 <button type="button" className="btn btn-default mystyle">
@@ -165,6 +265,11 @@ function mapStateToModalProps(state) {
     title: state.tickets.current[0].title,
     description: state.tickets.current[0].description,
     editor: state.tickets.current[0].editor,
+    author: state.tickets.current[0].author,
+    designer: state.tickets.current[0].designer,
+    photo_editor: state.tickets.current[0].photo_editor,
+    status: state.tickets.current[0].status,
+    dash: state.tickets.current[0].dash,
     isOpen: state.modal.isOpen,
     newEntry: state.modal.newEntry
   };

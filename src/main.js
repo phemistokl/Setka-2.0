@@ -6,7 +6,7 @@ import { syncHistoryWithStore } from 'react-router-redux';
 
 import App from './components/App.jsx';
 import TicketsBox from './components/Tickets/TicketsBox.jsx';
-import Dashboard from './components/Dashboard/TicketsBox.jsx';
+import Dashboard from './components/Dashboard/DashboardBox.jsx';
 
 import store from './store';
 

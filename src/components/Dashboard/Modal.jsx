@@ -1,26 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { addTicket, editTicket, updateTicket, deleteTicket, toggleModal } from '../../actions';
+import Date from './Date.jsx';
 
-@connect(mapStateToModalProps, { addTicket, editTicket, updateTicket, deleteTicket, toggleModal })
+import { editTicket, updateTicket, toggleModal } from '../../actions';
+
+@connect(mapStateToModalProps, { editTicket, updateTicket, toggleModal })
 export default class Modal extends Component {
     constructor(props) {
         super(props);
 
-        if (!this.props.newEntry) {
           this.state = ({
-            title: props.title,
-            description: props.description,
-            editor: props.editor
+            status: props.status
           });
-        } else {
-          this.state = ({
-            title: '',
-            description: '',
-            editor: ''
-          });
-        }
     }
 
     componentDidMount() {
@@ -38,54 +30,26 @@ export default class Modal extends Component {
         });
     }
 
-    handleDelete() {
-        if (this.props.id && !this.props.newEntry) {
-          this.props.deleteTicket(this.props.id);
-        }
-        this.closeModal();
-    }
-
     handleCreate() {
       const ticket = {
-          title: this.state.title,
-          description: this.state.description,
-          editor: this.state.editor,
+          status: this.state.status
       };
 
-
-        if (!this.props.newEntry) {
-          this.props.updateTicket(this.props.id, ticket);
-        }
-        else {
-          this.props.addTicket(ticket);
-        }
+      this.props.updateTicket(this.props.id, ticket);
 
       this.closeModal();
     }
 
-    handleTitleChange(e) {
+    handleStatusChange(e) {
       e.preventDefault();
       this.setState({
-        title: e.target.value
-      });
-    }
-
-    handleDescriptionChange(e) {
-      e.preventDefault();
-      this.setState({
-        description: e.target.value
-      });
-    }
-
-    handleEditorChange(e) {
-      e.preventDefault();
-      this.setState({
-        editor: e.target.value
+        status: e.target.value
       });
     }
 
     render() {
-      console.log(this.props.title);
+      const { title, description, date, editor, author, designer, photo_editor, like, dash } = this.props;
+
       if (!this.props.isOpen) {
         this.closeModal();
       }
@@ -106,41 +70,28 @@ export default class Modal extends Component {
                 >
                   <span aria-hidden="true">&times;</span>
                 </button>
-                {
-                  !this.props.newEntry ?
-                  <h4 className="modal-title">Edit Ticket</h4>
-                  : <h4 className="modal-title">Create Ticket</h4>
-                }
+                  <h4 className="modal-title">Dash</h4>
               </div>
               <div className="modal-body">
-                <div className="input-form-group">
-                  <label htmlFor="ticket-title">Ticket title</label>
-                  <input type="text"
-                    onChange={this.handleTitleChange.bind(this)}
-                    id="ticket-title"
-                    className="form-control"
-                    value={this.state.title}
-                  />
-                </div>
+
+                <div>{title}</div>
+                <div>{description}</div>
+                <div><Date date={date} /></div>
+                <div>{editor}</div>
+                <div>{author}</div>
+                <div>{designer}</div>
+                <div>{photo_editor}</div>
 
                 <div className="input-form-group">
-                  <label htmlFor="ticket-description">Ticket description</label>
-                  <input type="text"
-                    onChange={this.handleDescriptionChange.bind(this)}
-                    id="ticket-description"
-                    className="form-control"
-                    value={this.state.description}
-                  />
+                  <label htmlFor="ticket-status">Status</label>
+                  <select value={this.state.status} onChange={this.handleStatusChange.bind(this)} id="ticket-dash">
+                    <option value="Верстаеться">Верстаеться</option>
+                    <option value="Картинки готовы">Картинки готовы</option>
+                    <option value="Текст готов">Текст готов</option>
+                    <option value="Утвержден">Утвержден</option>
+                  </select>
                 </div>
-                <div className="input-form-group">
-                  <label htmlFor="ticket-editor">Ticket editor</label>
-                  <input type="text"
-                    onChange={this.handleEditorChange.bind(this)}
-                    id="ticket-editor"
-                    className="form-control"
-                    value={this.state.editor}
-                  />
-                </div>
+
               </div>
               <div className="modal-footer">
                 <button type="button" className="btn btn-default mystyle">
@@ -148,9 +99,6 @@ export default class Modal extends Component {
                 </button>
                 <button onClick={this.handleCreate.bind(this)} type="button" className="btn btn-primary">
                   Save changes
-                </button>
-                <button onClick={this.handleDelete.bind(this)} type="button" className="btn btn-danger bottom-left">
-                  Delete
                 </button>
               </div>
             </div>
@@ -164,7 +112,13 @@ function mapStateToModalProps(state) {
     id: state.tickets.current[0].id,
     title: state.tickets.current[0].title,
     description: state.tickets.current[0].description,
+    date: state.tickets.current[0].date,
     editor: state.tickets.current[0].editor,
+    author: state.tickets.current[0].author,
+    designer: state.tickets.current[0].designer,
+    photo_editor: state.tickets.current[0].photo_editor,
+    status: state.tickets.current[0].status,
+    dash: state.tickets.current[0].dash,
     isOpen: state.modal.isOpen,
     newEntry: state.modal.newEntry
   };

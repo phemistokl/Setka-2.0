@@ -9,7 +9,8 @@ export const addTicket = ticket => {
 		author: ticket.author,
 		designer: ticket.designer,
 		photo_editor: ticket.photo_editor,
-		status: ticket.status
+		status: ticket.status,
+		dash: ticket.dash
 	};
 };
 
@@ -24,7 +25,8 @@ export const updateTicket = (id, ticket) => {
 		author: ticket.author,
 		designer: ticket.designer,
 		photo_editor: ticket.photo_editor,
-		status: ticket.status
+		status: ticket.status,
+		dash: ticket.dash
 	};
 };
 
@@ -38,6 +40,12 @@ export const deleteTicket = id => {
 export const createTicket = () => {
 		return {
     		type: 'CREATE_TICKET'
+		};
+};
+
+export const dashBoard = () => {
+		return {
+    		type: 'DASHBOARD'
 		};
 };
 

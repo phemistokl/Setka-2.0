@@ -1,26 +1,28 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PageHeader from 'react-bootstrap/lib/PageHeader';
+import Row  from 'react-bootstrap/lib/Row';
+import Col  from 'react-bootstrap/lib/Col';
+import Button from 'react-bootstrap/lib/Button';
+import Table from 'react-bootstrap/lib/Table';
 
-import Ticket from './Ticket.jsx';
+import Board from './Board.jsx';
 import Modal from './Modal.jsx';
 
-import { updateTicket, createTicket, toggleModal } from '../../actions';
+import { updateTicket, toggleModal, dashBoard } from '../../actions';
 
-@connect(mapStateToProps, { updateTicket, createTicket, toggleModal })
-export default class TicketsBox extends Component {
+@connect(mapStateToProps, { updateTicket, toggleModal, dashBoard })
+export default class DashboardBox extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
             tickets: []
         };
-
-        this.createTicket = this.createTicket.bind(this);
     }
 
-    createTicket() {
-        this.props.createTicket();
-        this.props.toggleModal();
+    componentDidMount() {
+        this.props.dashBoard();
     }
 
     render() {
@@ -28,10 +30,12 @@ export default class TicketsBox extends Component {
 
             <div>
               { this.props.isOpen ? <Modal /> : null }
-              <div className="addTicket" onClick={this.createTicket}>Add Ticket</div>
+              <Row className="show-grid">
+                <Col xs={12} sm={12} md={12} lg={12}><h1>Dashboard</h1></Col>
+              </Row>
                         {
-                        	this.props.tickets.map(ticket =>
-                        		<Ticket
+                        	this.props.dashboard.map(ticket =>
+                        		<Board
                         			key={ticket.id}
                         			id={ticket.id}
                         			title={ticket.title}
@@ -53,7 +57,7 @@ export default class TicketsBox extends Component {
 
 function mapStateToProps(state) {
 	return {
-		tickets: state.tickets.tickets,
+		dashboard: state.tickets.dashboard,
     isOpen: state.modal.isOpen
 	};
 }
