@@ -10,6 +10,7 @@ export const addTicket = ticket => {
 		designer: ticket.designer,
 		photo_editor: ticket.photo_editor,
 		status: ticket.status,
+		like: ticket.like,
 		dash: ticket.dash
 	};
 };
@@ -26,6 +27,7 @@ export const updateTicket = (id, ticket) => {
 		designer: ticket.designer,
 		photo_editor: ticket.photo_editor,
 		status: ticket.status,
+		like: ticket.like,
 		dash: ticket.dash
 	};
 };
@@ -43,11 +45,11 @@ export const createTicket = () => {
 		};
 };
 
-export const dashBoard = () => {
-		return {
-    		type: 'DASHBOARD'
-		};
-};
+// export const dashBoard = () => {
+// 		return {
+//     		type: 'DASHBOARD'
+// 		};
+// };
 
 export const currentTicket = id => {
 		return {
@@ -61,3 +63,10 @@ export const toggleModal = () => {
     		type: 'TOGGLE_MODAL'
 		};
 };
+
+export const setSort = sort => {
+		return {
+				type: 'SET_SORT',
+				sort
+		}
+}

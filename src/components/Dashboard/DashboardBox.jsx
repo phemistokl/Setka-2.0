@@ -21,9 +21,9 @@ export default class DashboardBox extends Component {
         };
     }
 
-    componentDidMount() {
-        this.props.dashBoard();
-    }
+    // componentDidMount() {
+    //     this.props.dashBoard();
+    // }
 
     render() {
         return (
@@ -47,6 +47,7 @@ export default class DashboardBox extends Component {
                         			photo_editor={ticket.photo_editor}
                               status={ticket.status}
                               like={ticket.like}
+                              dash={ticket.dash}
                         	   />
                         	)
                         }
@@ -55,9 +56,14 @@ export default class DashboardBox extends Component {
     }
 }
 
+function getDashedTickets(tickets) {
+    console.log("Я запущен");
+    return tickets.filter(ticket => ticket.dash);
+}
+
 function mapStateToProps(state) {
 	return {
-		dashboard: state.tickets.dashboard,
+		dashboard: getDashedTickets(state.tickets.tickets),
     isOpen: state.modal.isOpen
 	};
 }

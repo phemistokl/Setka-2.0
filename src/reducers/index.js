@@ -6,65 +6,65 @@ const InitialState = [
 		id: 0,
 		title: "Ticket 1",
 		description: "Lorem Ipsum - это текст, часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно пережил без заметных изменений пять веков, но и перешагнул в электронный дизайн. Его популяризации в новое время послужили публикация листов Letraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее время, программы электронной вёрстки типа Aldus PageMaker, в шаблонах которых используется Lorem Ipsum.",
-		date: new Date('2017-03-23T12:00:00Z'),
+		date: new Date('2017-03-20T12:00:00Z'),
 		editor: "Ivan Petrov",
 		author: "Sergei Sidorov",
 		designer: "Katy Ivanova",
 		photo_editor: "Peter Gabriel",
 		status: "Текст готов",
-		like: 100500,
+		like: 120500,
 		dash: true,
 	},
 	{
 		id: 1,
 		title: "Ticket 2",
 		description: "Lorem Ipsum - это текст, часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно пережил без заметных изменений пять веков, но и перешагнул в электронный дизайн. Его популяризации в новое время послужили публикация листов Letraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее время, программы электронной вёрстки типа Aldus PageMaker, в шаблонах которых используется Lorem Ipsum.",
-		date: new Date('2017-03-23T12:00:00Z'),
+		date: new Date('2017-04-23T12:00:00Z'),
 		editor: "Ivan Petrov",
 		author: "Sergei Sidorov",
 		designer: "Katy Ivanova",
 		photo_editor: "Peter Gabriel",
 		status: "Текст готов",
-		like: 100500,
+		like: 200500,
 		dash: false,
 	},
 	{
 		id: 2,
 		title: "Ticket 3",
 		description: "Lorem Ipsum - это текст, часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно пережил без заметных изменений пять веков, но и перешагнул в электронный дизайн. Его популяризации в новое время послужили публикация листов Letraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее время, программы электронной вёрстки типа Aldus PageMaker, в шаблонах которых используется Lorem Ipsum.",
-		date: new Date('2017-03-23T12:00:00Z'),
+		date: new Date('2017-11-13T12:00:00Z'),
 		editor: "Ivan Petrov",
 		author: "Sergei Sidorov",
 		designer: "Katy Ivanova",
 		photo_editor: "Peter Gabriel",
 		status: "Текст готов",
-		like: 100500,
+		like: 500,
 		dash: true,
 	},
 	{
 		id: 3,
 		title: "Ticket 4",
 		description: "Lorem Ipsum - это текст, часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно пережил без заметных изменений пять веков, но и перешагнул в электронный дизайн. Его популяризации в новое время послужили публикация листов Letraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее время, программы электронной вёрстки типа Aldus PageMaker, в шаблонах которых используется Lorem Ipsum.",
-		date: new Date('2017-03-23T12:00:00Z'),
+		date: new Date('2017-05-16T12:00:00Z'),
 		editor: "Ivan Petrov",
 		author: "Sergei Sidorov",
 		designer: "Katy Ivanova",
 		photo_editor: "Peter Gabriel",
 		status: "Текст готов",
-		like: 100500,
+		like: 300500,
 		dash: false,
 	},
 	{
 		id: 4,
 		title: "Ticket 5",
 		description: "Lorem Ipsum - это текст, часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно пережил без заметных изменений пять веков, но и перешагнул в электронный дизайн. Его популяризации в новое время послужили публикация листов Letraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее время, программы электронной вёрстки типа Aldus PageMaker, в шаблонах которых используется Lorem Ipsum.",
-		date: new Date('2017-03-23T12:00:00Z'),
+		date: new Date('2016-03-23T12:00:00Z'),
 		editor: "Ivan Petrov",
 		author: "Sergei Sidorov",
 		designer: "Katy Ivanova",
 		photo_editor: "Peter Gabriel",
 		status: "Текст готов",
-		like: 100500,
+		like: 1005,
 		dash: false,
 	},
 	{
@@ -77,7 +77,7 @@ const InitialState = [
 		designer: "Katy Ivanova",
 		photo_editor: "Peter Gabriel",
 		status: "Текст готов",
-		like: 100500,
+		like: 10500,
 		dash: false,
 	},
 	{
@@ -90,7 +90,7 @@ const InitialState = [
 		designer: "Katy Ivanova",
 		photo_editor: "Peter Gabriel",
 		status: "Текст готов",
-		like: 100500,
+		like: 10,
 		dash: true,
 	},
 ];
@@ -151,7 +151,7 @@ function ticket(state = {}, action) {
 	}
 };
 
-function tickets(state = { tickets: InitialState, current: [{id: ""}], dashboard:[{}] }, action) {
+function tickets(state = { tickets: InitialState, current: [{id: ""}], dashboard:[{id: ""}] }, action) {
 	switch (action.type) {
 		case 'ADD_TICKET': {
 			return {
@@ -162,12 +162,13 @@ function tickets(state = { tickets: InitialState, current: [{id: ""}], dashboard
       }
 		}
 
-		case 'DASHBOARD': {
-      return {
-				...state,
-				dashboard: state.tickets.filter(item => ticket(item, action))
-			}
-    }
+		// case 'DASHBOARD': {
+		// 	console.log(state.tickets, state.tickets.filter(item => ticket(item, action)));
+    //   return {
+		// 		...state,
+		// 		dashboard: state.tickets.filter(item => ticket(item, action))
+		// 	}
+    // }
 
 		case 'CURRENT_TICKET': {
       return {
@@ -196,6 +197,18 @@ function tickets(state = { tickets: InitialState, current: [{id: ""}], dashboard
 	}
 };
 
+function sort(state = "NEWEST", action) {
+		switch(action.type) {
+			case 'SET_SORT': {
+				return action.sort;
+			}
+
+			default: {
+				return state;
+			}
+		}
+};
+
 function modal( state = { isOpen: false, newEntry: false }, action) {
     switch(action.type) {
       case 'TOGGLE_MODAL':
@@ -218,4 +231,4 @@ function modal( state = { isOpen: false, newEntry: false }, action) {
     }
 };
 
-export default combineReducers({ tickets, ticket, modal, routing });
+export default combineReducers({ tickets, ticket, modal, sort, routing });

@@ -12,22 +12,26 @@ export default class Modal extends Component {
           this.state = ({
             title: props.title,
             description: props.description,
+            date: props.date,
             editor: props.editor,
             author: props.author,
             designer: props.designer,
             photo_editor: props.photo_editor,
             status: props.status,
+            like: props.like,
             dash: props.dash
           });
         } else {
           this.state = ({
             title: '',
             description: '',
+            date: '',
             editor: '',
             author: '',
             designer: '',
             photo_editor: '',
             status: '',
+            like: '',
             dash: ''
           });
         }
@@ -59,11 +63,13 @@ export default class Modal extends Component {
       const ticket = {
           title: this.state.title,
           description: this.state.description,
+          date: this.state.date,
           editor: this.state.editor,
           author: this.state.author,
           designer: this.state.designer,
           photo_editor: this.state.photo_editor,
           status: this.state.status,
+          like: this.state.like,
           dash: this.state.dash,
       };
 
@@ -264,11 +270,13 @@ function mapStateToModalProps(state) {
     id: state.tickets.current[0].id,
     title: state.tickets.current[0].title,
     description: state.tickets.current[0].description,
+    date: state.tickets.current[0].date,
     editor: state.tickets.current[0].editor,
     author: state.tickets.current[0].author,
     designer: state.tickets.current[0].designer,
     photo_editor: state.tickets.current[0].photo_editor,
     status: state.tickets.current[0].status,
+    like: state.tickets.current[0].like,
     dash: state.tickets.current[0].dash,
     isOpen: state.modal.isOpen,
     newEntry: state.modal.newEntry

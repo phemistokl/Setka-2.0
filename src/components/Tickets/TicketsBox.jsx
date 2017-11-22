@@ -8,6 +8,7 @@ import Table from 'react-bootstrap/lib/Table';
 
 import Ticket from './Ticket.jsx';
 import Modal from './Modal.jsx';
+import Sort from './Sort.jsx';
 
 import { updateTicket, createTicket, toggleModal } from '../../actions';
 
@@ -38,6 +39,7 @@ export default class TicketsBox extends Component {
               </Row>
               <Table responsive striped bordered hover>
                 <thead>
+                  <Sort />
                   <tr>
                     <th>Title</th>
                     <th>Date</th>
@@ -70,9 +72,38 @@ export default class TicketsBox extends Component {
     }
 }
 
+function getSortedTickets(tickets, sort) {
+    const newarr = [];
+    switch (sort) {
+        case 'NEWEST':
+            tickets.sort((a, b) => {
+                return a.date.getTime() < b.date.getTime() ? 1 : -1;
+            });
+            return newarr.concat(tickets);
+
+        case 'OLDEST':
+            tickets.sort((a, b) => {
+                return a.date.getTime() > b.date.getTime() ? 1 : -1;
+            });
+            return newarr.concat(tickets);
+
+        case 'BEST':
+            tickets.sort((a, b) => {
+                return a.like < b.like ? 1 : -1;
+            });
+            return newarr.concat(tickets);
+
+        case 'WORST':
+            tickets.sort((a, b) => {
+                return a.like > b.like ? 1 : -1;
+            });
+            return newarr.concat(tickets);
+    }
+}
+
 function mapStateToProps(state) {
 	return {
-		tickets: state.tickets.tickets,
+		tickets: getSortedTickets(state.tickets.tickets, state.sort),
     isOpen: state.modal.isOpen
 	};
 }
