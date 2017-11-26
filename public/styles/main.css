@@ -21,3 +21,27 @@ body {
   float: right;
   margin-bottom: 20px;
 }
+.dashContainer {
+  display: -webkit-flex; /* Safari */
+  display: flex;
+  -webkit-flex-direction: row; /* Safari */
+  flex-direction: row;
+  -webkit-flex-wrap: wrap; /* Safari */
+  flex-wrap: wrap;
+  -webkit-align-content: flex-start; /* Safari */
+  align-content: flex-start;
+}
+.dashBox {
+  width: 33%;
+  border: 1px solid  #ddd;
+  height: 150px;
+  cursor: pointer;
+  border-top: 0px;
+  border-left: 0px;
+}
+.dashBox:nth-child(1), .dashBox:nth-child(2), .dashBox:nth-child(3) {
+  border-top: 1px solid  #ddd;
+}
+.dashBox:nth-child(3n+1) {
+  border-left: 1px solid  #ddd;
+}

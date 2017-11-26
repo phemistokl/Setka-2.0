@@ -18,7 +18,7 @@ export default class Board extends Component {
 
     render() {
 
-          const { title, description, date, editor, author, designer, photo_editor, status, like } = this.props;
+          const { title, description, date, editor, author, designer, photo_editor, status, like, dash } = this.props;
 
           return (
             <div className="dashBox" onClick={this.currentTicket.bind(this)}>

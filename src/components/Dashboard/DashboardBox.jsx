@@ -17,7 +17,7 @@ export default class DashboardBox extends Component {
         super(props);
 
         this.state = {
-            tickets: []
+            dashboard: []
         };
     }
 
@@ -33,6 +33,7 @@ export default class DashboardBox extends Component {
               <Row className="show-grid">
                 <Col xs={12} sm={12} md={12} lg={12}><h1>Dashboard</h1></Col>
               </Row>
+              <div className="dashContainer">
                         {
                         	this.props.dashboard.map(ticket =>
                         		<Board
@@ -51,14 +52,14 @@ export default class DashboardBox extends Component {
                         	   />
                         	)
                         }
+              </div>
              </div>
         );
     }
 }
 
 function getDashedTickets(tickets) {
-    console.log("Я запущен");
-    return tickets.filter(ticket => ticket.dash);
+    return tickets.filter(ticket => ticket.dash == "true");
 }
 
 function mapStateToProps(state) {

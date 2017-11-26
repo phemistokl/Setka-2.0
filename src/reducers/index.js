@@ -13,7 +13,7 @@ const InitialState = [
 		photo_editor: "Peter Gabriel",
 		status: "Текст готов",
 		like: 120500,
-		dash: true,
+		dash: "true",
 	},
 	{
 		id: 1,
@@ -26,7 +26,7 @@ const InitialState = [
 		photo_editor: "Peter Gabriel",
 		status: "Текст готов",
 		like: 200500,
-		dash: false,
+		dash: "false",
 	},
 	{
 		id: 2,
@@ -39,7 +39,7 @@ const InitialState = [
 		photo_editor: "Peter Gabriel",
 		status: "Текст готов",
 		like: 500,
-		dash: true,
+		dash: "true",
 	},
 	{
 		id: 3,
@@ -52,7 +52,7 @@ const InitialState = [
 		photo_editor: "Peter Gabriel",
 		status: "Текст готов",
 		like: 300500,
-		dash: false,
+		dash: "false",
 	},
 	{
 		id: 4,
@@ -65,7 +65,7 @@ const InitialState = [
 		photo_editor: "Peter Gabriel",
 		status: "Текст готов",
 		like: 1005,
-		dash: false,
+		dash: "false",
 	},
 	{
 		id: 5,
@@ -78,7 +78,7 @@ const InitialState = [
 		photo_editor: "Peter Gabriel",
 		status: "Текст готов",
 		like: 10500,
-		dash: false,
+		dash: "false",
 	},
 	{
 		id: 6,
@@ -91,7 +91,7 @@ const InitialState = [
 		photo_editor: "Peter Gabriel",
 		status: "Текст готов",
 		like: 10,
-		dash: true,
+		dash: "true",
 	},
 ];
 
@@ -151,7 +151,7 @@ function ticket(state = {}, action) {
 	}
 };
 
-function tickets(state = { tickets: InitialState, current: [{id: ""}], dashboard:[{id: ""}] }, action) {
+function tickets(state = { tickets: InitialState, current: [{id: ""}] }, action) {
 	switch (action.type) {
 		case 'ADD_TICKET': {
 			return {
