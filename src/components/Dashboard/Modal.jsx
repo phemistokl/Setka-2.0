@@ -94,7 +94,7 @@ export default class Modal extends Component {
 
               </div>
               <div className="modal-footer">
-                <button type="button" className="btn btn-default mystyle">
+                <button onClick={this.closeModal.bind(this)} type="button" className="btn btn-default mystyle">
                     Cancel
                 </button>
                 <button onClick={this.handleCreate.bind(this)} type="button" className="btn btn-primary">

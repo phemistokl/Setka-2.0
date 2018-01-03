@@ -45,3 +45,39 @@ body {
 .dashBox:nth-child(3n+1) {
   border-left: 1px solid  #ddd;
 }
+.flex-td-container {
+  display: flex;
+  flex-derection: row;
+}
+.like-box {
+  width: 50%;
+}
+.button-box {
+  width: 50%;
+  text-align: right;
+  cursor: pointer;
+}
+.like-icon {
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+  background: url(../images/like.png) no-repeat 50% 50%;
+  display: inline-block;
+  background-size: cover;
+}
+.unlike-icon {
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+  background: url(../images/unlike.png) no-repeat 50% 50%;
+  display: inline-block;
+  background-size: cover;
+  margin-left: 7px;
+}
+.like-icon-box {
+  display: inline-block;
+}
+.like-text-box {
+  display: inline-block;
+  width: 100px;
+}

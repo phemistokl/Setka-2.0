@@ -10,7 +10,7 @@ export const addTicket = ticket => {
 		designer: ticket.designer,
 		photo_editor: ticket.photo_editor,
 		status: ticket.status,
-		like: ticket.like,
+		like: 0,
 		dash: ticket.dash
 	};
 };

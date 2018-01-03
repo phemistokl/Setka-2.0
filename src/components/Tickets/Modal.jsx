@@ -231,12 +231,12 @@ export default class Modal extends Component {
 
                 <div className="input-form-group">
                   <label htmlFor="ticket-status">Status</label>
-                  <input type="text"
-                    onChange={this.handleStatusChange.bind(this)}
-                    id="ticket-status"
-                    className="form-control"
-                    value={this.state.status}
-                  />
+                  <select value={this.state.status} onChange={this.handleStatusChange.bind(this)} id="ticket-dash">
+                    <option value="Верстаеться">Верстаеться</option>
+                    <option value="Картинки готовы">Картинки готовы</option>
+                    <option value="Текст готов">Текст готов</option>
+                    <option value="Утвержден">Утвержден</option>
+                  </select>
                 </div>
 
                 <div className="input-form-group">
@@ -249,7 +249,7 @@ export default class Modal extends Component {
 
               </div>
               <div className="modal-footer">
-                <button type="button" className="btn btn-default mystyle">
+                <button onClick={this.closeModal.bind(this)} type="button" className="btn btn-default mystyle">
                     Cancel
                 </button>
                 <button onClick={this.handleCreate.bind(this)} type="button" className="btn btn-primary">

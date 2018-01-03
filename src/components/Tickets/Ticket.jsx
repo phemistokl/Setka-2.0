@@ -23,10 +23,10 @@ export default class Ticket extends Component {
           const { title, description, date, editor, author, designer, photo_editor, status, like, dash } = this.props;
 
           return (
-            <tr className="ticketBox" onClick={this.currentTicket.bind(this)}>
+            <tr className="ticketBox">
               <td>{title}</td>
               <td><Date date={date} /></td>
-              <td>{like}</td>
+              <td><div className="flex-td-container"><div className="like-box"><div className="like-text-box">{like}</div><div className="like-icon-box"><a className="like-icon"></a><a className="unlike-icon"></a></div></div><div className="button-box"><a onClick={this.currentTicket.bind(this)}>Edit</a></div></div></td>
             </tr>
           );
     }
